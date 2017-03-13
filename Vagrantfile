@@ -71,6 +71,8 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: <<-SHELL
     apt-get update
     apt-get upgrade -y
-    apt-get install -y g++ make antlr4
+    apt-get install -y g++ make openjdk-8-jdk
+    cd /usr/share/java
+    curl -O http://www.antlr.org/download/antlr-4.6-complete.jar
   SHELL
 end
