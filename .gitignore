@@ -27,3 +27,12 @@
 *.exe
 *.out
 *.app
+
+ubuntu-xenial-16.04-cloudimg-console.log
+HelloBaseListener.java
+HelloLexer.java
+*.tokens
+HelloListener.java
+HelloParser.java
+
+.vagrant
