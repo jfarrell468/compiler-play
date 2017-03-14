@@ -71,8 +71,15 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: <<-SHELL
     apt-get update
     apt-get upgrade -y
-    apt-get install -y g++ make openjdk-8-jdk
+    apt-get install -y g++ make openjdk-8-jdk cmake pkg-config uuid-dev unzip
     cd /usr/share/java
     curl -O http://www.antlr.org/download/antlr-4.6-complete.jar
+    mkdir -p /opt/antlr-runtime-src
+    cd /opt/antlr-runtime-src
+    curl -O http://www.antlr.org/download/antlr4-cpp-runtime-4.6-source.zip
+    unzip antlr4-cpp-runtime-4.6-source.zip
+    perl -pi -w -e 's/License.txt//;' CMakeLists.txt
+    cmake . -DANTLR_JAR_LOCATION=/usr/share/java/antlr-4.6-complete.jar
+    make install
   SHELL
 end

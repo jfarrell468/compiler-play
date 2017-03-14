@@ -35,4 +35,6 @@ HelloLexer.java
 HelloListener.java
 HelloParser.java
 
+*.class
+
 .vagrant
